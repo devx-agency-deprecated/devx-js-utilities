@@ -25,6 +25,7 @@ function | specification
 randomIntFromInterval | (min: number, max: number) => number
 generateUniqueKey | () => string
 generateUniqueNumberFromTwoNumbers | (n1: number, n2: number) => number
+guid | () => string (xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx)
 
 ### Validate
 ```javascript
@@ -32,7 +33,7 @@ import { validate } from 'devx-js-utilities'
 ```
 function | specification
 ---|---
-validateCreditCard | (value: string) => boolean 
+validateCreditCard | (value: string) => boolean
 validateEmail | (value: string) => boolean
 validatePhone | (value: string) => boolean
 validateZipCode | (value: string) => boolean
