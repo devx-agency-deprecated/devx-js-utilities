@@ -1,1 +1,131 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:!0});var validateCreditCard=exports.validateCreditCard=function(a){if(/[^0-9-\s]+/.test(a))return!1;var c=0,d=0,e=!1;a=a.replace(/\D/g,'');for(var f,g=a.length-1;0<=g;g--){if(f=a.charAt(g),d=parseInt(f,10),e){var h=d*=2;9<h&&(d-=9)}c+=d,e=!e}return 0==c%10},validateEmail=exports.validateEmail=function(a){return!a||/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(a)},validatePhone=exports.validatePhone=function(a){return!a||/^((00|\+)\d{3})? ?[1-9]\d{2} ?\d{3} ?\d{3}$/.test(a.trim())},validateZipCode=exports.validateZipCode=function(a){if(!a)return!0;var b=/^[1-9]{1}\d{2}[ ]?\d{2}$/.test(a.trim());if(b){for(var c,d=a[0],e=1;e<a.length;e++)if(c=a[e],c!==d)return!0;return!1}return!1},validateStreet=exports.validateStreet=function(a){return!a||/^((?!([0\W]))[0-9]*[ ,.-]*[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+[\wáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ ,.-]*)$/.test(a.trim())},validateCity=exports.validateCity=function(a){return!a||/^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+$/.test(a.trim())},validateSurname=exports.validateSurname=function(a){return!a||/^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+$/.test(a.trim())},validateLandRegistryNumber=exports.validateLandRegistryNumber=function(a){return!a||/^((?!(\W))[0]*[0\W]*[a-zA-Z1-9]+.*)$/.test(a.trim())},isNumeric=exports.isNumeric=function(a){return!isNaN(parseFloat(a))&&isFinite(a)};exports.default={validateCreditCard:validateCreditCard,validateEmail:validateEmail,validatePhone:validatePhone,validateZipCode:validateZipCode,validateStreet:validateStreet,validateCity:validateCity,validateSurname:validateSurname,validateLandRegistryNumber:validateLandRegistryNumber,isNumeric:isNumeric};
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * @description Validate card number by Luhn algorithm
+ */
+var validateCreditCard = exports.validateCreditCard = function validateCreditCard(value) {
+  if (/[^0-9-\s]+/.test(value)) return false;
+
+  var nCheck = 0;
+  var nDigit = 0;
+  var bEven = false;
+  value = value.replace(/\D/g, '');
+
+  for (var n = value.length - 1; n >= 0; n--) {
+    var cDigit = value.charAt(n);
+    nDigit = parseInt(cDigit, 10);
+
+    if (bEven) {
+      var b = nDigit *= 2;
+      if (b > 9) nDigit -= 9;
+    }
+
+    nCheck += nDigit;
+    bEven = !bEven;
+  }
+
+  return nCheck % 10 === 0;
+};
+
+/**
+ * @description Validate email address
+ */
+var validateEmail = exports.validateEmail = function validateEmail(value) {
+  if (!value) return true;
+
+  return (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
+  );
+};
+
+/**
+ * @description Validate phone format
+ */
+var validatePhone = exports.validatePhone = function validatePhone(value) {
+  if (!value) return true;
+
+  return (/^((00|\+)\d{3})? ?[1-9]\d{2} ?\d{3} ?\d{3}$/.test(value.trim())
+  );
+};
+
+/**
+ * @description Validate zip code
+ */
+var validateZipCode = exports.validateZipCode = function validateZipCode(value) {
+  if (!value) return true;
+
+  var regexValid = /^[1-9]{1}\d{2}[ ]?\d{2}$/.test(value.trim());
+  if (regexValid) {
+    var firstChar = value[0];
+
+    for (var index = 1; index < value.length; index++) {
+      var char = value[index];
+      if (char !== firstChar) return true;
+    }
+
+    return false;
+  }
+
+  return false;
+};
+
+/**
+ * @description Validate street
+ */
+var validateStreet = exports.validateStreet = function validateStreet(value) {
+  if (!value) return true;
+
+  return (/^((?!([0\W]))[0-9]*[ ,.-]*[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+[\wáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ ,.-]*)$/.test(value.trim())
+  );
+};
+
+/**
+ * @description Validate city
+ */
+var validateCity = exports.validateCity = function validateCity(value) {
+  if (!value) return true;
+
+  return (/^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+$/.test(value.trim())
+  );
+};
+
+/**
+ * @description Validate surname
+ */
+var validateSurname = exports.validateSurname = function validateSurname(value) {
+  if (!value) return true;
+
+  return (/^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+$/.test(value.trim())
+  );
+};
+
+/**
+ * @description validateLandRegistryNumber
+ */
+var validateLandRegistryNumber = exports.validateLandRegistryNumber = function validateLandRegistryNumber(value) {
+  if (!value) return true;
+
+  return (/^((?!(\W))[0]*[0\W]*[a-zA-Z1-9]+.*)$/.test(value.trim())
+  );
+};
+
+/**
+ * @description Validate if value is numeric
+ */
+var isNumeric = exports.isNumeric = function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
+exports.default = {
+  validateCreditCard: validateCreditCard,
+  validateEmail: validateEmail,
+  validatePhone: validatePhone,
+  validateZipCode: validateZipCode,
+  validateStreet: validateStreet,
+  validateCity: validateCity,
+  validateSurname: validateSurname,
+  validateLandRegistryNumber: validateLandRegistryNumber,
+  isNumeric: isNumeric
+};
