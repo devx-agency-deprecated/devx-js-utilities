@@ -43,4 +43,14 @@ validateSurname | (value: string) => boolean
 validateLandRegistryNumber | (value: string) => boolean
 isNumeric | (n: string \ number) => boolean
 
+### Humanizer
+```javascript
+import { humanize } from 'devx-js-utilities'
+```
+
+function | specification
+---|---
+humanizeNumber | (x: number, locales?: string) => string
+csNumber | (value: string) => string
+
 ## Thanks to T & M & V!
