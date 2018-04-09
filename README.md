@@ -42,6 +42,8 @@ validateCity | (value: string) => boolean
 validateSurname | (value: string) => boolean
 validateLandRegistryNumber | (value: string) => boolean
 isNumeric | (n: string \ number) => boolean
+isRCValid | (identificationNumber: string) => boolean
+isICOValid | (ico: string) => boolean
 
 ### Humanizer
 ```javascript

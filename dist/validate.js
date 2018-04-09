@@ -118,6 +118,53 @@ var isNumeric = exports.isNumeric = function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
+var isRCValid = exports.isRCValid = function isRCValid(identificationNumber) {
+  var match = /^(\d{2})(\d{2})(\d{2})(\d{3})(\d?)$/.exec(identificationNumber);
+  if (!match) {
+    return false;
+  }
+  var year = Number(match[1]);
+  var month = Number(match[2]);
+  var day = Number(match[3]);
+  var ext = match[4];
+  var c = match[5];
+
+  if (!c) {
+    if (ext === '000') {
+      return false;
+    }
+    year += year > 53 ? 1800 : 1900;
+  } else {
+    var mod = Number(match[0]) % 11;
+    if (mod !== 0) {
+      return false;
+    }
+    year += year > 53 ? 1900 : 2000;
+  }
+  if (month > 50) {
+    month -= 50;
+  } else if (month > 20) {
+    month -= 20;
+  }
+
+  return month > 0 && month <= 12 && day > 0 && day <= new Date(year, month, 0).getDate();
+};
+
+var isICOValid = exports.isICOValid = function isICOValid(ico) {
+  var match = /^\d{8}$/.exec(ico);
+  if (!match) {
+    return false;
+  }
+
+  var control = 0;
+  for (var index = 0; index < 7; index++) {
+    control += Number(match[0][index]) * (8 - index);
+  }
+
+  var mod = control % 11;
+  return (11 - mod) % 10 === Number(match[0][7]);
+};
+
 exports.default = {
   validateCreditCard: validateCreditCard,
   validateEmail: validateEmail,
@@ -127,5 +174,7 @@ exports.default = {
   validateCity: validateCity,
   validateSurname: validateSurname,
   validateLandRegistryNumber: validateLandRegistryNumber,
-  isNumeric: isNumeric
+  isNumeric: isNumeric,
+  isRCValid: isRCValid,
+  isICOValid: isICOValid
 };
