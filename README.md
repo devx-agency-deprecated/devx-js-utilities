@@ -45,7 +45,7 @@ isNumeric | (n: string \ number) => boolean
 
 ### Humanizer
 ```javascript
-import { humanize } from 'devx-js-utilities'
+import { humanizer } from 'devx-js-utilities'
 ```
 
 function | specification
