@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.humanizer = exports.validate = exports.random = exports.cookie = undefined;
+exports.convert = exports.humanizer = exports.validate = exports.random = exports.cookie = undefined;
 
 var _cookie = require('./cookie');
 
@@ -21,16 +21,22 @@ var _humanizer = require('./humanizer');
 
 var _humanizer2 = _interopRequireDefault(_humanizer);
 
+var _convert = require('./convert');
+
+var _convert2 = _interopRequireDefault(_convert);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var cookie = exports.cookie = _cookie2.default;
 var random = exports.random = _random2.default;
 var validate = exports.validate = _validate2.default;
 var humanizer = exports.humanizer = _humanizer2.default;
+var convert = exports.convert = _convert2.default;
 
 exports.default = {
   cookie: cookie,
   random: random,
   validate: validate,
-  humanizer: humanizer
+  humanizer: humanizer,
+  convert: convert
 };

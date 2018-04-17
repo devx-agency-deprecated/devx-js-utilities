@@ -55,4 +55,13 @@ function | specification
 humanizeNumber | (x: number, locales?: string) => string
 csNumber | (value: string) => string
 
+### Convert
+```javascript
+import { convert } from 'devx-js-utilities'
+```
+
+function | specification
+---|---
+dataURItoBlob | (dataURI: string) => Blob
+
 ## Thanks to T & M & V!
