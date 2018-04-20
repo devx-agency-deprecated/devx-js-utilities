@@ -3,40 +3,59 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.convert = exports.humanizer = exports.validate = exports.random = exports.cookie = undefined;
 
 var _cookie = require('./cookie');
 
-var _cookie2 = _interopRequireDefault(_cookie);
+Object.defineProperty(exports, 'cookie', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_cookie).default;
+  }
+});
 
 var _random = require('./random');
 
-var _random2 = _interopRequireDefault(_random);
+Object.defineProperty(exports, 'random', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_random).default;
+  }
+});
 
 var _validate = require('./validate');
 
-var _validate2 = _interopRequireDefault(_validate);
+Object.defineProperty(exports, 'validate', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_validate).default;
+  }
+});
 
 var _humanizer = require('./humanizer');
 
-var _humanizer2 = _interopRequireDefault(_humanizer);
+Object.defineProperty(exports, 'humanizer', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_humanizer).default;
+  }
+});
 
 var _convert = require('./convert');
 
-var _convert2 = _interopRequireDefault(_convert);
+Object.defineProperty(exports, 'convert', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_convert).default;
+  }
+});
+
+var _transform = require('./transform');
+
+Object.defineProperty(exports, 'transform', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_transform).default;
+  }
+});
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var cookie = exports.cookie = _cookie2.default;
-var random = exports.random = _random2.default;
-var validate = exports.validate = _validate2.default;
-var humanizer = exports.humanizer = _humanizer2.default;
-var convert = exports.convert = _convert2.default;
-
-exports.default = {
-  cookie: cookie,
-  random: random,
-  validate: validate,
-  humanizer: humanizer,
-  convert: convert
-};

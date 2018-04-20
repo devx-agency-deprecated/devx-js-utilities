@@ -64,4 +64,15 @@ function | specification
 ---|---
 dataURItoBlob | (dataURI: string) => Blob
 
+### Transform
+```javascript
+import { transform } from 'devx-js-utilities'
+```
+
+function | specification
+---|---
+toCamelCase | (word: string) => string
+toSnakeCase | (word: string) => string
+transformAllKeys | (data: Array \ Object) => Array \ Object
+
 ## Thanks to T & M & V!
