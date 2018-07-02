@@ -87,7 +87,7 @@ var validateStreet = exports.validateStreet = function validateStreet(value) {
 var validateCity = exports.validateCity = function validateCity(value) {
   if (!value) return true;
 
-  return (/^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+$/.test(value.trim())
+  return (/^[a-žA-Ž- ]+$/.test(value.trim())
   );
 };
 
@@ -97,7 +97,7 @@ var validateCity = exports.validateCity = function validateCity(value) {
 var validateSurname = exports.validateSurname = function validateSurname(value) {
   if (!value) return true;
 
-  return (/^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+$/.test(value.trim())
+  return (/^[a-žA-Ž]+$/.test(value.trim())
   );
 };
 
