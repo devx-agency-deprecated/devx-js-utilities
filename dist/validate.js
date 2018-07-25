@@ -87,7 +87,7 @@ var validateStreet = exports.validateStreet = function validateStreet(value) {
 var validateCity = exports.validateCity = function validateCity(value) {
   if (!value) return true;
 
-  return (/^[a-žA-Ž- ]+$/.test(value.trim())
+  return (/^[0-9a-žA-Ž- ]+$/.test(value.trim())
   );
 };
 
