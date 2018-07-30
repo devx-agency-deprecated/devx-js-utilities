@@ -77,7 +77,7 @@ var validateZipCode = exports.validateZipCode = function validateZipCode(value) 
 var validateStreet = exports.validateStreet = function validateStreet(value) {
   if (!value) return true;
 
-  return (/^((?!([0\W]))[0-9]*[ ,.-]*[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]+[\wáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ ,.-]*)$/.test(value.trim())
+  return (/^[0-9a-žA-Ž-,.\/ ]+$/.test(value.trim())
   );
 };
 
