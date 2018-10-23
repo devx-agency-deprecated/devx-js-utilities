@@ -1,6 +1,6 @@
 {
   "name": "devx-js-utilities",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel lib --plugins=transform-flow-strip-types,transform-runtime,transform-class-properties --presets babel-preset-es2015 --out-dir dist",
