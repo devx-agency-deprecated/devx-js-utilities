@@ -75,4 +75,14 @@ toCamelCase | (word: string) => string
 toSnakeCase | (word: string) => string
 transformAllKeys | (data: Array \ Object) => Array \ Object
 
+
+### Array
+```javascript
+import { array } from 'devx-js-utilities'
+```
+
+function | specification
+---|---
+unique | (array) => array
+
 ## Thanks to T & M & V!

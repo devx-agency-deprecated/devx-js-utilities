@@ -58,4 +58,13 @@ Object.defineProperty(exports, 'transform', {
   }
 });
 
+var _array = require('./array');
+
+Object.defineProperty(exports, 'array', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_array).default;
+  }
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

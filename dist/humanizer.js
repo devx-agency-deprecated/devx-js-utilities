@@ -10,7 +10,7 @@ var humanizeNumber = exports.humanizeNumber = function humanizeNumber(x, locales
       return x;
     }
     return humanizeNumber(number, locales);
-  } else if (typeof x.toLocaleString === 'function') {
+  } else if (x && typeof x.toLocaleString === 'function') {
     return x.toLocaleString(locales);
   }
   return x;
