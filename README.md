@@ -35,7 +35,7 @@ function | specification
 ---|---
 validateCreditCard | (value: string) => boolean
 validateEmail | (value: string) => boolean
-validatePhone | (value: string) => boolean
+validatePhone | (value: string, prefixRequired?: string = false) => boolean
 validateZipCode | (value: string) => boolean
 validateStreet | (value: string) => boolean
 validateCity | (value: string) => boolean
