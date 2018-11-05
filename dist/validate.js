@@ -44,8 +44,14 @@ var validateEmail = exports.validateEmail = function validateEmail(value) {
  * @description Validate phone format
  */
 var validatePhone = exports.validatePhone = function validatePhone(value) {
+  var prefixRequired = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
   if (!value) return true;
 
+  if (prefixRequired) {
+    return (/^((00|\+)\d{3})+ ?[1-9]\d{2} ?\d{3} ?\d{3}$/.test(value.trim())
+    );
+  }
   return (/^((00|\+)\d{3})? ?[1-9]\d{2} ?\d{3} ?\d{3}$/.test(value.trim())
   );
 };
@@ -119,7 +125,7 @@ var isNumeric = exports.isNumeric = function isNumeric(n) {
 };
 
 var isRCValid = exports.isRCValid = function isRCValid(identificationNumber) {
-  var match = /^(\d{2})(\d{2})(\d{2})(\d{3})(\d?)$/.exec(identificationNumber);
+  var match = /^(\d{2})(\d{2})(\d{2})\/?(\d{3})(\d?)$/.exec(identificationNumber);
   if (!match) {
     return false;
   }
