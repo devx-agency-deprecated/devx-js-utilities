@@ -3,7 +3,7 @@ Javascript functions to help with development.
 
 ## Install
 ```git
-yarn add https://github.com/devx-agency/devx-js-utilities
+yarn add devx-js-utilities
 ```
 
 ## Usage

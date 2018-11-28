@@ -141,7 +141,7 @@ var isRCValid = exports.isRCValid = function isRCValid(identificationNumber) {
     }
     year += year > 53 ? 1800 : 1900;
   } else {
-    var mod = Number(match[0]) % 11;
+    var mod = Number(match[0].replace('/', '')) % 11;
     if (mod !== 0) {
       return false;
     }
