@@ -63,5 +63,6 @@ var transformAllKeys = exports.transformAllKeys = function transformAllKeys(data
 exports.default = {
   toCamelCase: toCamelCase,
   toSnakeCase: toSnakeCase,
-  transformAllKeys: transformAllKeys
+  transformAllKeys: transformAllKeys,
+  capitalize: capitalize
 };

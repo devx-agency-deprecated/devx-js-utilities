@@ -74,7 +74,7 @@ function | specification
 toCamelCase | (word: string) => string
 toSnakeCase | (word: string) => string
 transformAllKeys | (data: Array \ Object) => Array \ Object
-
+capitalize | (word: string) => string
 
 ### Array
 ```javascript
