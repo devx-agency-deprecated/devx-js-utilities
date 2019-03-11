@@ -63,6 +63,7 @@ import { convert } from 'devx-js-utilities'
 function | specification
 ---|---
 dataURItoBlob | (dataURI: string) => Blob
+getURLParams | (url: string) => Object
 
 ### Transform
 ```javascript
