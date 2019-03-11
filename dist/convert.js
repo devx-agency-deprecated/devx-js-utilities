@@ -26,6 +26,11 @@ var dataURItoBlob = exports.dataURItoBlob = function dataURItoBlob(dataURI) {
   return new Blob([ab], { type: mimeString });
 };
 
+var getURLParams = exports.getURLParams = function getURLParams(url) {
+  return JSON.parse('{"' + decodeURI(window.location.search.substring(1)).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
+};
+
 exports.default = {
-  dataURItoBlob: dataURItoBlob
+  dataURItoBlob: dataURItoBlob,
+  getURLParams: getURLParams
 };
