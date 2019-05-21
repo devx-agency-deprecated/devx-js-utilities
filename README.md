@@ -80,10 +80,12 @@ capitalize | (word: string) => string
 ### Array
 ```javascript
 import { array } from 'devx-js-utilities'
+import { closest } from 'devx-js-utilities'
 ```
 
 function | specification
 ---|---
 unique | (array) => array
+closest | (arr: string[] \ number[], target: number) => number
 
 ## Thanks to T & M & V!
