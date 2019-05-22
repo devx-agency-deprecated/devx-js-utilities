@@ -1,14 +1,1 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var unique = exports.unique = function unique(array) {
-  return array.filter(function (value, index, self) {
-    return self.indexOf(value) === index;
-  });
-};
-
-exports.default = {
-  unique: unique
-};
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var unique=exports.unique=function(a){return a.filter(function(a,b,c){return c.indexOf(a)===b})},closest=exports.closest=function(a,b){var d=Math.abs;if(!a||0===a.length)return 0;if(1===a.length)return parseFloat(a[0]);for(var e=1;e<a.length;e++)if(parseFloat(a[e])>b){var f=parseFloat(a[e-1]),g=parseFloat(a[e]);return d(f-b)<d(g-b)?f:g}return parseFloat(a[a.length-1])};exports.default={closest:closest,unique:unique};
