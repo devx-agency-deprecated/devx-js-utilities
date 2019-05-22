@@ -1,1 +1,68 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:!0}),exports.transformAllKeys=exports.toSnakeCase=exports.toCamelCase=void 0;var _keys=require('babel-runtime/core-js/object/keys'),_keys2=_interopRequireDefault(_keys);function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var transformWithoutLeadingUnderscore=function(a,b){return'_'===a.charAt(0)?'_'+b(a.substr(1)):b(a)},capitalize=function(a){return''+a[0].toUpperCase()+a.slice(1).toLowerCase()},camelCase=function(a){return(''+a).split('_').reduce(function(a,b,c){return b=b.toLowerCase(),a+(c?capitalize(b):b)},'')},snakeCase=function(a){return(''+a).split(/(?=[A-Z])/).reduce(function(a,b,c){return a+(c?'_':'')+b.toLowerCase()},'')},toCamelCase=exports.toCamelCase=function(a){return transformWithoutLeadingUnderscore(a,camelCase)},toSnakeCase=exports.toSnakeCase=function(a){return transformWithoutLeadingUnderscore(a,snakeCase)},transformAllKeys=exports.transformAllKeys=function a(b,c){var d=Array.isArray(b)?[]:{};return(0,_keys2.default)(b).forEach(function(e){var f=b[e],g=c(e);d[g]=f instanceof Object?a(f,c):f}),d};exports.default={toCamelCase:toCamelCase,toSnakeCase:toSnakeCase,transformAllKeys:transformAllKeys,capitalize:capitalize};
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.transformAllKeys = exports.toSnakeCase = exports.toCamelCase = undefined;
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @description Transform string without leading underscore using transform function
+ */
+var transformWithoutLeadingUnderscore = function transformWithoutLeadingUnderscore(value, transform) {
+  return value.charAt(0) === '_' ? '_' + transform(value.substr(1)) : transform(value);
+};
+
+var capitalize = function capitalize(string) {
+  return '' + string[0].toUpperCase() + string.slice(1).toLowerCase();
+};
+
+var camelCase = function camelCase(string) {
+  return ('' + string).split('_').reduce(function (result, word, index) {
+    word = word.toLowerCase();
+    return result + (index ? capitalize(word) : word);
+  }, '');
+};
+
+var snakeCase = function snakeCase(string) {
+  return ('' + string).split(/(?=[A-Z])/).reduce(function (result, word, index) {
+    return result + (index ? '_' : '') + word.toLowerCase();
+  }, '');
+};
+
+var toCamelCase = exports.toCamelCase = function toCamelCase(value) {
+  return transformWithoutLeadingUnderscore(value, camelCase);
+};
+
+var toSnakeCase = exports.toSnakeCase = function toSnakeCase(value) {
+  return transformWithoutLeadingUnderscore(value, snakeCase);
+};
+
+var transformAllKeys = exports.transformAllKeys = function transformAllKeys(data, transform) {
+  var newData = Array.isArray(data) ? [] : {};
+
+  (0, _keys2.default)(data).forEach(function (key) {
+    var value = data[key];
+    var newKey = transform(key);
+
+    if (value instanceof Object) {
+      newData[newKey] = transformAllKeys(value, transform);
+    } else {
+      newData[newKey] = value;
+    }
+  });
+
+  return newData;
+};
+
+exports.default = {
+  toCamelCase: toCamelCase,
+  toSnakeCase: toSnakeCase,
+  transformAllKeys: transformAllKeys,
+  capitalize: capitalize
+};
