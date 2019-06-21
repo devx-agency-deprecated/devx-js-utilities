@@ -23,7 +23,7 @@ var capitalize = function capitalize(string) {
 };
 
 var camelCase = function camelCase(string) {
-  return ('' + string).split('_').reduce(function (result, word, index) {
+  return ('' + string).split(/[-_]/g).reduce(function (result, word, index) {
     word = word.toLowerCase();
     return result + (index ? capitalize(word) : word);
   }, '');
