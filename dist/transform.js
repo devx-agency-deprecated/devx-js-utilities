@@ -19,7 +19,7 @@ var transformWithoutLeadingUnderscore = function transformWithoutLeadingUndersco
 };
 
 var capitalize = function capitalize(string) {
-  return '' + string[0].toUpperCase() + string.slice(1).toLowerCase();
+  return typeof string === 'string' && string.length > 1 ? '' + string[0].toUpperCase() + string.slice(1).toLowerCase() : '';
 };
 
 var camelCase = function camelCase(string) {
