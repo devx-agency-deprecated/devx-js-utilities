@@ -88,4 +88,12 @@ function | specification
 unique | (array) => array
 closest | (arr: string[] \ number[], target: number) => number
 
+### Salutation
+```javascript
+import { salutation } from 'devx-js-utilities'
+```
+function | specification
+---|---
+salutation | (name: string) => string
+
 ## Thanks to T & M & V!
