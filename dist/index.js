@@ -67,4 +67,13 @@ Object.defineProperty(exports, 'array', {
   }
 });
 
+var _salutation = require('./salutation');
+
+Object.defineProperty(exports, 'salutation', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_salutation).default;
+  }
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
