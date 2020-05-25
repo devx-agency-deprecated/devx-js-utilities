@@ -10,9 +10,6 @@
     "type": "git",
     "url": "https://github.com/devx-agency/devx-js-utilities.git"
   },
-  "dependencies": {
-    "devx-js-utilities": "^0.0.22"
-  },
   "devDependencies": {
     "ajv": "^5.2.2",
     "babel-cli": "6",
