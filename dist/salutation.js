@@ -75,7 +75,7 @@ var salutation = exports.salutation = function salutation(name) {
               }
               break;
             case 'r':
-              replaceName = convertName.charAt(convertName.length - 4) == 'a' ? ['el', 'li'] : ['', 'i'];
+              replaceName = convertName.charAt(convertName.length - 4) == 'a' ? ['el', 'le'] : ['', 'i'];
               break;
             case 'v':
               replaceName = convertName.charAt(convertName.length - 5) == 'p' ? ['el', 'le'] : ['el', 'li'];
@@ -502,7 +502,7 @@ var salutation = exports.salutation = function salutation(name) {
     return name.substr(0, -replaceName[0].length);
   }
   if (replaceName[0] == '') {
-    return name + (jmeno.charAt(jmeno.length).toLowerCase() == name.charAt(name.length) ? replaceName[1] : replaceName[1].toUpperCase());
+    return name + (name.charAt(name.length).toLowerCase() == name.charAt(name.length) ? replaceName[1] : replaceName[1].toUpperCase());
   }
   var replaceending = void 0;
   replaceending = name.substr(name.length - replaceName[0].length);
