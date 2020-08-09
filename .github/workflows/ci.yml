@@ -2,7 +2,7 @@ name: NPM build and push
 
 on:
   release:
-    types: [published, created, released]
+    types: [released]
 
 jobs:
     build:
