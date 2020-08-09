@@ -13,7 +13,7 @@ import { cookie } from 'devx-js-utilities'
 ```
 function | specification
 ---|---
-createCookie | (name: string, value: string, minutes: number) => void
+createCookie | (name: string, value: string, minutes: number, secure?: boolean, samesite?: 'strict' \ 'lax') => void
 readCookie | (name: string) => null / string
 
 ### Random
@@ -95,5 +95,3 @@ import { salutation } from 'devx-js-utilities'
 function | specification
 ---|---
 salutation | (name: string) => string
-
-## Thanks to T & M & V!
