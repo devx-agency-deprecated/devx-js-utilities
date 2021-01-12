@@ -13,7 +13,7 @@ import { cookie } from 'devx-js-utilities'
 ```
 function | specification
 ---|---
-createCookie | (name: string, value: string, minutes: number, secure?: boolean, samesite?: 'strict' \ 'lax') => void
+createCookie | (name: string, value: string, minutes?: number, secure?: boolean, samesite?: 'strict' \ 'lax') => void
 readCookie | (name: string) => null / string
 
 ### Random
