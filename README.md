@@ -3,7 +3,7 @@ Javascript functions to help with development.
 
 ## Install
 ```git
-yarn add https://github.com/devx-agency/devx-js-utilities
+yarn add devx-js-utilities
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ import { cookie } from 'devx-js-utilities'
 ```
 function | specification
 ---|---
-createCookie | (name: string, value: string, minutes: number) => void
+createCookie | (name: string, value: string, minutes?: number, secure?: boolean, samesite?: 'strict' \ 'lax') => void
 readCookie | (name: string) => null / string
 
 ### Random
@@ -35,7 +35,7 @@ function | specification
 ---|---
 validateCreditCard | (value: string) => boolean
 validateEmail | (value: string) => boolean
-validatePhone | (value: string) => boolean
+validatePhone | (value: string, prefixRequired?: string = false) => boolean
 validateZipCode | (value: string) => boolean
 validateStreet | (value: string) => boolean
 validateCity | (value: string) => boolean
@@ -63,6 +63,7 @@ import { convert } from 'devx-js-utilities'
 function | specification
 ---|---
 dataURItoBlob | (dataURI: string) => Blob
+getURLParams | (url: string) => Object
 
 ### Transform
 ```javascript
@@ -74,5 +75,23 @@ function | specification
 toCamelCase | (word: string) => string
 toSnakeCase | (word: string) => string
 transformAllKeys | (data: Array \ Object) => Array \ Object
+capitalize | (word: string) => string
 
-## Thanks to T & M & V!
+### Array
+```javascript
+import { array } from 'devx-js-utilities'
+import { closest } from 'devx-js-utilities'
+```
+
+function | specification
+---|---
+unique | (array) => array
+closest | (arr: string[] \ number[], target: number) => number
+
+### Salutation
+```javascript
+import { salutation } from 'devx-js-utilities'
+```
+function | specification
+---|---
+salutation | (name: string) => string
